@@ -11,9 +11,9 @@
 
 本 repo 的維護者負責「建立獨立新專案的 Node 24 範本。」這個模組；公會職稱與自填 GitHub slug 不授予寫入權。
 
-程式／內容入口：[src/server.mjs](src/server.mjs)、[scripts/build.mjs](scripts/build.mjs)、[test/](test/)、[docs/initialize-project.md](docs/initialize-project.md)、[.github/ISSUE_TEMPLATE/](.github/ISSUE_TEMPLATE/)。協作先讀 [CONTRIBUTING.md](CONTRIBUTING.md)，讓 Agent 讀 [AGENTS.md](AGENTS.md)；從[本倉 Issues](https://github.com/FreeTWAI-AI/freedom-project-template/issues)認領、[查看既有 PR](https://github.com/FreeTWAI-AI/freedom-project-template/pulls)避免重工。
+程式／內容入口：[src/server.mjs](src/server.mjs)、[scripts/build.mjs](scripts/build.mjs)、[test/](test/)、[docs/initialize-project.md](docs/initialize-project.md)、[.github/ISSUE_TEMPLATE/](.github/ISSUE_TEMPLATE/)。協作先讀 [CONTRIBUTING.md](CONTRIBUTING.md)，讓 Agent 讀 [AGENTS.md](AGENTS.md)；從[本倉 Issues](https://github.com/FreeTWAI/freedom-project-template/issues)認領、[查看既有 PR](https://github.com/FreeTWAI/freedom-project-template/pulls)避免重工。
 
-從模板建立的 repo 不等於 GitHub fork，不繼承原 repo ID。新專案維護自己的產品碼；中央會員與公會仍經 freedom-platform API，不複製中央資料庫。 跨 repo 的協定由[中央平台](https://github.com/FreeTWAI-AI/freedom-platform)維護。
+從模板建立的 repo 不等於 GitHub fork，不繼承原 repo ID。新專案維護自己的產品碼；中央會員與公會仍經 freedom-platform API，不複製中央資料庫。 跨 repo 的協定由[中央平台](https://github.com/FreeTWAI/freedom-platform)維護。
 <!-- freedom-repository-guide:end -->
 
 A working Node 24 starting point for a **new independent project**, with tests, a local preview and a pinned Platform contract bundle. It does not copy the Platform's database or turn a new project into a Platform service.
