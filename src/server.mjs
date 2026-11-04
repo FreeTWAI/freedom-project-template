@@ -3,7 +3,26 @@ import { pathToFileURL } from 'node:url';
 
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]);
 
-/** Local preview only. Add real product behavior without creating a second member database. */
+/**
+ * Creates a local HTTP preview server for a new Freedom project.
+ *
+ * This server provides a basic local preview and health check endpoint (`/health`).
+ * It is intended to be replaced with real product behavior as the project evolves,
+ * without creating a separate member database.
+ *
+ * @param {Object} [options] - Configuration options for the preview server.
+ * @param {string} [options.projectName='New Freedom project'] - The name of the project to display in the preview. Must be between 1 and 120 characters.
+ * @returns {import('node:http').Server} A configured HTTP server instance.
+ * @throws {TypeError} If the `projectName` is invalid.
+ *
+ * @example
+ * import { createPreviewServer } from './src/server.mjs';
+ *
+ * const server = createPreviewServer({ projectName: 'My Custom Project' });
+ * server.listen(3000, () => {
+ *   console.log('Preview server running on http://127.0.0.1:3000');
+ * });
+ */
 export function createPreviewServer({ projectName = 'New Freedom project' } = {}) {
   if (typeof projectName !== 'string' || !projectName.trim() || projectName.length > 120) throw new TypeError('Project name must be 1–120 characters');
   return createServer((request, response) => {

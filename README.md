@@ -26,6 +26,42 @@ npm run dev
 
 Open `http://127.0.0.1:4320` on the same machine. `PORT` can change the port; the example binds to loopback. This is not a remote deployment. `dist/server.mjs` is a reproducible source artifact.
 
+## API Reference & Core Modules
+
+The template includes two primary modules that you can interact with or customize:
+
+### `src/server.mjs`
+This file implements the local preview HTTP server for the project template.
+
+*   **`createPreviewServer([options])`**
+    *   **Description:** Creates an `http.Server` instance configured for local development and previewing.
+    *   **Parameters:**
+        *   `options` (Object): Configuration options.
+        *   `options.projectName` (string, optional): The name of the project to display on the preview page. Defaults to `'New Freedom project'`. Valid length is between 1 and 120 characters.
+    *   **Returns:** `import('node:http').Server`
+    *   **Throws:** `TypeError` if `projectName` is invalid.
+    *   **Example Usage:**
+        ```javascript
+        import { createPreviewServer } from './src/server.mjs';
+
+        const server = createPreviewServer({ projectName: 'My Awesome Project' });
+        server.listen(3000, () => {
+          console.log('Server is running on http://127.0.0.1:3000');
+        });
+        ```
+
+### `scripts/build.mjs`
+This script acts as the project's build artifact generator.
+
+*   **Description:** It handles the packaging of the source code (`src/server.mjs`) into a reproducible build artifact (`dist/server.mjs`). It does not deploy the artifact or execute arbitrary commands.
+*   **Usage:**
+    You can invoke it directly via Node.js or via npm:
+    ```sh
+    node scripts/build.mjs
+    # or
+    npm run build
+    ```
+
 ## Create your project
 
 After using the template, follow [the initialization checklist](docs/initialize-project.md). The checked-in `freedom.project.yaml` identifies **this template repository**. It must be replaced with the new repository's observed identity before the new project is registered. A template-created repository is not a GitHub fork, and does not inherit the source project's status.
